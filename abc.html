@@ -1,0 +1,37 @@
+<html>
+<head>
+    <script src="socketio.js"/>
+    <title>HelloWebsocket</title>
+    <script type="text/javascript">
+        var socket;
+        function onload(){
+            document.getElementById("timer").innerHTML = "hello";
+            socket = io.connect();
+            socket.on('Timer',function(data){
+                document.getElementById("timer").innerHTML = "hello";
+                console.log(data);
+            });
+
+        };
+        function submitData(){
+            var data = document.getElementById("deo").value;
+            socket.emit('submit',data);
+            prompt("Donto eneter any Detail");
+
+        };
+
+
+    </script>
+
+</head>
+<body onload="onload()">
+<h1>Welcome to the browser </h1>
+<p> timer <span id="timer"></span></p>
+<form action="#">
+    <p>Data: <inpute type="text" id="deo"/></p>
+    <input type="button"  onClick="submitData()">
+
+
+</form>
+</body>
+</html>

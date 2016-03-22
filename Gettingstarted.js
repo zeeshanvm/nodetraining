@@ -14,7 +14,7 @@ var evenDoubler = function(v,callback)
 
     }
 
-}
+};
 var resultHandler = function(err,v,result,waitTime)
 {
     if(err)
@@ -25,7 +25,8 @@ var resultHandler = function(err,v,result,waitTime)
         console.log("Result we get by doubling " + v +" in " + waitTime + "(ms) is " + result );
 
     }
-}
+};
 
 evenDoubler(2,resultHandler);
-
+module.exports.evenDoubler = evenDoubler;
+//module.exports.resultHandler = resultHandler;
